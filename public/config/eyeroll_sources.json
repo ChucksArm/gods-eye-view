@@ -1,0 +1,11 @@
+[
+  {
+    "id": "eyeroll-london",
+    "name": "Eyeroll: Piccadilly Circus Live (London, UK)",
+    "region": "Eyeroll",
+    "type": "hls",
+    "lat": 51.5098,
+    "lon": -0.1344,
+    "url": "https://stream.mux.com/v69Un5bgAkepRERC00AQgahN014rwqlHOG.m3u8"
+  }
+]

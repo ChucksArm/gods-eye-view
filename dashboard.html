@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CCTV Tactical Operations Wall // GEV</title>
+  <link rel="stylesheet" href="/src/dashboard/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+  <header class="ops-header">
+    <div class="brand">
+      <div class="radar-dot"></div>
+      <span class="brand-title">GEV // CCTV TACTICAL MONITOR</span>
+    </div>
+
+    <div class="controls">
+      <input type="text" id="search-input" placeholder="Search cameras, routes, cities..." />
+      
+      <select id="region-filter">
+        <option value="ALL">All Sources & Networks</option>
+        <option value="Eyeroll">Eyeroll Live Streams</option>
+        <option value="NYCDOT">New York City (NYCDOT)</option>
+        <option value="TxDOT">Texas (TxDOT)</option>
+        <option value="Caltrans">California (Caltrans)</option>
+        <option value="DriveBC">British Columbia (DriveBC)</option>
+        <option value="NSW">Sydney (LiveTraffic)</option>
+      </select>
+
+      <select id="matrix-layout">
+        <option value="grid-auto">Adaptive Grid</option>
+        <option value="grid-2x2">2 × 2 Matrix</option>
+        <option value="grid-3x3">3 × 3 Matrix</option>
+        <option value="grid-4x4">4 × 4 Matrix</option>
+      </select>
+
+      <button id="refresh-all-btn" class="btn">Force Refresh</button>
+      <a href="/" class="btn btn-secondary">Open 3D Globe ↗</a>
+    </div>
+  </header>
+
+  <div class="telemetry-bar">
+    <span>FEEDS ACTIVE: <strong id="active-count">0</strong></span>
+    <span>STATUS: <span class="badge online">MONITORING</span></span>
+    <span>POLL INTERVAL: <strong>5.0s (Staggered)</strong></span>
+  </div>
+
+  <main id="camera-wall" class="grid-auto"></main>
+
+  <div id="cam-modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="modal-close" class="modal-close">&times;</button>
+      <div id="modal-player-container"></div>
+      <div class="modal-info">
+        <h3 id="modal-title">Camera Name</h3>
+        <p id="modal-meta"></p>
+        <a id="modal-globe-link" class="btn btn-primary" target="_blank">View on 3D Globe</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/dashboard/main.js"></script>
+</body>
+</html>
